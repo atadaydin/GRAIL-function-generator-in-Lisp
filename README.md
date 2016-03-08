@@ -5,7 +5,7 @@ Automatically generates functions for abstract data types given their GRAIL repr
 
 ## Motivation
 
-Defining helper functions for abstract data types in symbolic computing tasks is repetitive and tedious. To alleviate this, the program allows the user to generate such functions automatically given the GRAIL syntax of the data types.
+Defining helper functions for abstract data types in symbolic computing tasks is a repetitive and tedious ordeal. To alleviate this, the program allows the user to generate such functions automatically given the GRAIL syntax of the data types.
 
 
 
