@@ -13,7 +13,7 @@ Defining helper functions for abstract data types in symbolic computing tasks is
 
 GRAIL, short for GRAmmars In Lisp, is a notation format for abstract data types in Lisp, which extends Backus-Naur Form (BNF) by the addition of nonterminal argument names (Cameron and Dixon 1992). The program uses a functionally equivalent representation of GRAIL rules to automatically define functions relating to a given list of GRAIL rules.
 
-To run the program, first move the file to the directory you wish to use the file in and run `(load "grail.lisp")` before running the program inside another program or a REPL. Then run the command `(grail grail-list)` where grail-list is a variable defined according to the following BNF syntax:
+To run the program, first move the file to the directory you wish to use the file in and run `(load "grail.lisp")` before running the program inside another program or a REPL. Then run the command `(grail <grail-list>)` where `<grail-list>` is a list of GRAIL rules defined according to the following BNF syntax:
 
 ```
 <grail-list>  ::= "'(" {<grail-rule>} ")"
