@@ -20,15 +20,25 @@
 ;;;   takes the elements in the nonterminal's construction in order and constructs the 
 ;;;   corresponding nonterminal, and updaters that replace a specific element.
 
+;;;; Package definition
+
+(defpackage #:GRAIL-GENERATOR
+	    (:use #:COMMON-LISP)
+	    (:export #:GRAIL)
+	    (:documentation 
+	      "Program that generates functions automatically from a collection of GRAIL rules."))
+
+(in-package #:GRAIL-GENERATOR)
+
 ;;;; Main program
 
 ;;; Possible paths for growth:
 ;;; - Provide for default number and symbol types, with predicates numberp and symbolp
 ;;; - Automatically name arguments by order of occurrence in expression if unnamed
 ;;; - Shorten the result of acc-shortest-path for e.g. caddr
-;;; - Individually mark the mutability of each defined type
-;;; - Append lists of arguments, as in (and (and <args1>) (and <args2>)) -> (and <args1>    <args2>)
-;;; - Define functions used in the program inside a separate package
+;;; - Individually mark the mutability of each defined type on the nonterminal
+;;; - Append lists of arguments, as in (and (and <args1>) (and <args2>)) -> (and <args1> . <args2>)
+;;; - Define functions used in the program inside a separate package 
 
 ;; extend for alternation rules, only for predicates
 (defmacro GRAIL (grail-list &key (mutable NIL) (default NIL))
