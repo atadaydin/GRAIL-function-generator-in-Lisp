@@ -33,12 +33,13 @@
 ;;;; Main program
 
 ;;; Possible paths for growth:
-;;; - Provide for default number and symbol types, with predicates numberp and symbolp
-;;; - Automatically name arguments by order of occurrence in expression if unnamed
+;;; - Provide for default number and symbol types, with predicates numberp and symbolp (Done)
+;;; - Automatically name arguments by order of occurrence in expression if unnamed (Done)
 ;;; - Shorten the result of acc-shortest-path for e.g. caddr
 ;;; - Individually mark the mutability of each defined type on the nonterminal
 ;;; - Append lists of arguments, as in (and (and <args1>) (and <args2>)) -> (and <args1> . <args2>)
-;;; - Define functions used in the program inside a separate package 
+;;; - Define functions used in the program inside a separate package (Done)
+;;; - Generate argument names from their type, not from "ARG"
 
 ;; extend for alternation rules, only for predicates
 (defmacro GRAIL (grail-list &key (mutable NIL) (default NIL))
