@@ -70,3 +70,4 @@ Using these functions, one might write a simple arithmetical calculator as follo
          (- (calculate (diff-arg1 expr))
             (calculate (diff-arg2 expr))))))
 ```
+Thanks to the program, the user need only write one function, when he would otherwise have to write 9, not counting the unused constructors. The constructors could be used instead in a calculator that also handles variables or canonical forms.
