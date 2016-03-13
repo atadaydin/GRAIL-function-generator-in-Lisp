@@ -55,3 +55,18 @@ Then the helper functions explained above can be used as follows:
 (negtn-negend '(- 6))      ; => 6
 (sum-p '((3 + 4) - (- 5))) ; => NIL
 ```
+
+Using these functions, one might write a simple arithmetical calculator as follows:
+```
+(defun calculate (expr)
+  "Evaluate an arithmetical expression and return the result."
+  (cond ((numberp expr) expr)
+        ((negtn-p expr)
+         (- (calculate (negtn-negend expr))))
+        ((sum-p expr)
+         (+ (calculate (sum-arg1 expr))
+            (calculate (sum-arg2 expr))))
+        ((diff-p expr)
+         (- (calculate (diff-arg1 expr))
+            (calculate (diff-arg2 expr))))))
+```
