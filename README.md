@@ -1,4 +1,4 @@
-# GRAIL-function-generator-in-Lisp
+# GRAIL function generator
 Automatically generates functions for abstract data types given their GRAIL representation.
 
 
