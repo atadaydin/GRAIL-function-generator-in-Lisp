@@ -42,7 +42,7 @@
 ;;; - Generate argument names from their type, not from "ARG"
 
 ;; extend for alternation rules, only for predicates
-(defmacro GRAIL (grail-list &key (mutable NIL) (default NIL))
+(defmacro GRAIL (&key (mutable NIL) (default NIL) &body grail-list)
   "Generate functions from a collection of GRAIL rules.
    A GRAIL rule is defined by the following BNF syntax:
    <GRAIL>       ::= <assignment> | <alternation>
@@ -56,8 +56,8 @@
    The key :MUTABLE designates whether updater functions should be generated, 
    and the key :DEFAULT designates (optionally) a default type, a type that is 
    considered to encompass all inputs and is not verified for efficiency purposes."
-  (let ((assign-list (remove-if-not #'assignment-p (eval grail-list)))
-        (alter-list (remove-if-not #'alternation-p (eval grail-list)))
+  (let ((assign-list (remove-if-not #'assignment-p grail-list))
+        (alter-list (remove-if-not #'alternation-p grail-list))
         (default-name (eval default)))
     `(progn ,@(mapcar (lambda (x) (gen-alter-recognizer x :default default-name)) alter-list)
             ,@(mapcan (lambda (x) (gen-functions x :mutable mutable :default default-name))
