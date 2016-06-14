@@ -43,11 +43,11 @@ The program does not verify the completeness of the provided rules; the user has
 
 The following code defines functions from a syntax describing a toy subset of arithmetical expressions:
 ```
-(grail '((#(expr)  ::= #(number) #(negation) #(sum) #(diff))
-         (#(negtn) ::= (- #(negend expr)))
-         (#(sum)   ::= (#(arg1 expr) + #(arg2 expr)))
-         (#(diff)  ::= (#(arg1 expr) - #(arg2 expr))))
-       :default 'expr)
+(grail :default expr
+  (#(expr)  ::= #(number) #(negation) #(sum) #(diff))
+  (#(negtn) ::= (- #(negend expr)))
+  (#(sum)   ::= (#(arg1 expr) + #(arg2 expr)))
+  (#(diff)  ::= (#(arg1 expr) - #(arg2 expr)))))
 ```
 Then the helper functions explained above can be used as follows:
 ```
