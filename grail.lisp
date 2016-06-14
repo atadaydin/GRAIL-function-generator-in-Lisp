@@ -58,7 +58,7 @@
    considered to encompass all inputs and is not verified for efficiency purposes."
   (let ((assign-list (remove-if-not #'assignment-p grail-list))
         (alter-list (remove-if-not #'alternation-p grail-list))
-        (default-name (eval default)))
+        (default-name default))
     `(progn ,@(mapcar (lambda (x) (gen-alter-recognizer x :default default-name)) alter-list)
             ,@(mapcan (lambda (x) (gen-functions x :mutable mutable :default default-name))
                       assign-list)
